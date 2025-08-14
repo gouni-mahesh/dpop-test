@@ -7,6 +7,10 @@ const DpopTestForm: React.FC = () => {
   const handleTestDpop = () => {
     testDpopMutation.mutate();
   };
+  const handleClear = () => {
+    localStorage.removeItem('deviceToken');
+    alert('Device token cleared from localStorage!');
+  };
 
   return (
     <div style={{ padding: "20px", maxWidth: "300px" }}>
@@ -31,6 +35,10 @@ const DpopTestForm: React.FC = () => {
           ❌ Error: {testDpopMutation.error.message}
         </p>
       )}
+
+       <button onClick={handleClear} style={{ padding: '8px 16px', cursor: 'pointer' }}>
+      Clear Device Token
+    </button>
     </div>
   );
 };
